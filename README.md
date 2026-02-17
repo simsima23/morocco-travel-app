@@ -1,4 +1,4 @@
-#Morocco Travel App
+# Morocco Travel App
 A travel application built with Flutter and Dart.
 ## Features
 - Explore four cities (Marrakech, Casablanca, Fes, Chefchaouen)
@@ -36,16 +36,17 @@ flutter pub get
 4. Run the app
 ```bash
 flutter run
-
+```
 ## Project Structure
 ```
 lib/
-├── main.dart                
+├── main.dart   
 ├── models/
 │   ├── city.dart             
-│   └── activity.dart          
+│   └── activity.dart  
 ├── screens/
 │   ├── home_screen.dart        
 │   └── city_detail_screen.dart  
 └── data/
     └── morocco_data.dart
+```
