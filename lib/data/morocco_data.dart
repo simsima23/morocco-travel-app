@@ -10,7 +10,7 @@ List<City> getMoroccoCities() {
       activities: [
         Activity(
           name: 'Visit Jemaa el-Fnaa Square',
-          description: 'Experience the bustling main square with street performers, food stalls, and local culture',
+          description: 'Experience the busy main square with street performers, delicious food stalls',
           duration: '2-3 hours',
         ),
         Activity(

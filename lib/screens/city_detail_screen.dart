@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../models/city.dart';
 
 class CityDetailScreen extends StatelessWidget {
@@ -9,38 +10,66 @@ class CityDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFFAF8F5),
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
-            expandedHeight: 300,
+            expandedHeight: 340,
             pinned: true,
+            backgroundColor: Colors.black,
+            iconTheme: IconThemeData(color: Colors.white),
             flexibleSpace: FlexibleSpaceBar(
-              title: Text(city.name),
-              background: Image.asset(
-                city.imagePath,
-                fit: BoxFit.cover,
+              titlePadding: EdgeInsets.only(left: 20, bottom: 16),
+              title: Text(
+                city.name,
+                style: GoogleFonts.newsreader(
+                  fontSize: 26,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+              background: Stack(
+                fit: StackFit.expand,
+                children: [
+                  Image.asset(city.imagePath, fit: BoxFit.cover),
+                  Container(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [
+                          Colors.transparent,
+                          Colors.black.withOpacity(0.6),
+                        ],
+                        stops: [0.5, 1.0],
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
           SliverToBoxAdapter(
             child: Padding(
-              padding: EdgeInsets.all(16),
+              padding: EdgeInsets.all(20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     city.description,
-                    style: TextStyle(
+                    style: GoogleFonts.newsreader(
                       fontSize: 18,
                       color: Colors.grey[700],
+                      height: 1.6,
                     ),
                   ),
-                  SizedBox(height: 24),
+                  SizedBox(height: 28),
                   Text(
                     'Things to Do',
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
+                    style: GoogleFonts.newsreader(
+                      fontSize: 26,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.black87,
                     ),
                   ),
                   SizedBox(height: 16),
@@ -64,46 +93,56 @@ class ActivityCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
+    return Container(
       margin: EdgeInsets.only(bottom: 16),
-      child: Padding(
-        padding: EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              children: [
-                Icon(Icons.place, color: Colors.teal),
-                SizedBox(width: 8),
-                Expanded(
-                  child: Text(
-                    activity.name,
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+      padding: EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(14),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.06),
+            blurRadius: 10,
+            offset: Offset(0, 4),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            activity.name,
+            style: GoogleFonts.newsreader(
+              fontSize: 20,
+              fontWeight: FontWeight.w600,
+              color: Colors.black87,
+            ),
+          ),
+          SizedBox(height: 8),
+          Text(
+            activity.description,
+            style: GoogleFonts.newsreader(
+              fontSize: 15,
+              color: Colors.grey[600],
+              height: 1.5,
+            ),
+          ),
+          SizedBox(height: 12),
+          Row(
+            children: [
+              Icon(Icons.schedule, size: 15, color: Colors.teal),
+              SizedBox(width: 5),
+              Text(
+                activity.duration,
+                style: GoogleFonts.newsreader(
+                  fontSize: 13,
+                  color: Colors.teal,
+                  fontWeight: FontWeight.w500,
                 ),
-              ],
-            ),
-            SizedBox(height: 8),
-            Text(
-              activity.description,
-              style: TextStyle(fontSize: 16),
-            ),
-            SizedBox(height: 8),
-            Row(
-              children: [
-                Icon(Icons.access_time, size: 16, color: Colors.grey),
-                SizedBox(width: 4),
-                Text(
-                  activity.duration,
-                  style: TextStyle(color: Colors.grey[600]),
-                ),
-              ],
-            ),
-          ],
-        ),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
