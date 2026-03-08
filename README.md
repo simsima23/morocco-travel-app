@@ -13,7 +13,11 @@ A travel application built with Flutter and Dart.
 - **Custom Navigation** - Route-based navigation
 ## Application screenshots
 ![Homepage](app-screenshots/homepage.png)
+<br>
+<br>
 ![City detail screen](app-screenshots/city-detail.png)
+<br>
+<br>
 
 ## Getting Started
 ### Prerequisites
