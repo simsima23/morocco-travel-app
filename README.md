@@ -12,8 +12,9 @@ A travel application built with Flutter and Dart.
 - **ListView.builder** - Optimized list rendering
 - **Custom Navigation** - Route-based navigation
 ## Application screenshots
-![City detail screen](app-screenshots/city detail screen.png)
 ![Homepage](app-screenshots/homepage.png)
+![City detail screen](app-screenshots/city-detail.png)
+
 ## Getting Started
 ### Prerequisites
 - Flutter SDK
